@@ -1,4 +1,5 @@
 import React from 'react';
+import CreateTask from './createtask';
 import Tasklist from './tasklist';
 
 
@@ -35,6 +36,7 @@ const tasks = [    // todos will be changed to tasks
     return(
       <div>
         <h1>taskcentric</h1>
+        <CreateTask/>
         <Tasklist tasks={this.state.tasks} /> 
       </div>
       );
