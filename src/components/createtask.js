@@ -4,6 +4,7 @@ import React from 'react';
 // now to update the array in our entire app, we can't just do something in this file, we have to do it in the app.js file
 // so now we've tested that we have our createTask function by doing console.log(this.props.createTask); now we can actually pass this.refs.createInput.value into our this.props.createTask
 // the reason why we're using handleCreate near the bottom instead of up top is that we're using "this" inside of this method, but at the same time we want to bind "this" to the this method in app.js, so we end up creating a separate method near the bottom here, where we can use "this" here in the createInput as well as use the "this" here in the createTask. Basically we want to maintain the "this" context for the createTask component while we also want to maintain the "this" context for the createInput component
+// having this.refs.createInput.value = ''; actually empties the input after it is used, because before this, after we inpiut something into the form, it did not clear after it was submitted
 export default class CreateTask extends React.Component {
   render(){
     return(
@@ -18,5 +19,6 @@ export default class CreateTask extends React.Component {
       console.log(this.refs.createInput.value);
       console.log(this.props.createTask);
       this.props.createTask(this.refs.createInput.value);
+      this.refs.createInput.value = '';
     }
 }
