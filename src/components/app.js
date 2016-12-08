@@ -21,6 +21,7 @@ const tasks = [    // todos will be changed to tasks
 // React uses state, which you can use set.state with to update the state and re-render components, in this case, we'll use this.state
 // now to pass our state of tasks into tasklist, we'll pass the constant tasks into it, we do this by doing this.state={tasks]; and then tasks={this.state.tasks}
 // now our Tasklist component has our tasklist that we're passing in
+// to update the array in our entire app, our createTask method will be here
  export default class App extends React.Component {
 
   constructor(props){
@@ -37,8 +38,15 @@ const tasks = [    // todos will be changed to tasks
       <div>
         <h1>taskcentric</h1>
         <CreateTask/>
-        <Tasklist tasks={this.state.tasks} /> 
+        <Tasklist tasks={this.state.tasks} createTask={this.createTask.bind(this)}/> 
       </div>
       );
   }
+    createTask(task){
+      this.state.tasks({
+        task,
+        isCompleted: false
+      });
+      this.setState({tasks: this.state.tasks});
+    }
 }
