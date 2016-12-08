@@ -10,11 +10,16 @@ import TaskListItem from './tasklistitem';
 // we use lodash and return _.map, which creates a new array out of what we have and is going to allow us to customize it how we want, without mutating it
 // return _.map(this.props.tasks, (task, index) => <TaskListItem key={index} {...task} />); is the same thing as doing function(task, index){ return <TaskListItem?>}
 // {...} is es6 spreading, it's the same thing as passing in task={task.task} isCompleted = {task.isCompleted}, so using this set of syntax is much cleaner
+// so as mentioned, we are passing toggleTask into our Tasklist, but not in our tasklistitem.js file yet, so now the way to do that would be to go into our tasklist.js file, and we would pass multiple props into it, but we don't want all the props into it, so we'll make a const props, using a lodash method with omit, so we're going to search through this.props and omit tasks, because we don't want to include that into our tasklistitem.js, and also use the spread operator for props, {...props}
 export default class Tasklist extends React.Component {
 
+  
+
   renderItems(){
+    const props = _.omit(this.props, 'tasks')
+    
     return _.map(this.props.tasks, (task, index) => <TaskListItem key={index
-    } {...task} />);
+    } {...task} {...props} />);
   }
 
 

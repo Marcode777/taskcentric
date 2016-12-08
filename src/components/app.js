@@ -23,6 +23,12 @@ const tasks = [    // todos will be changed to tasks
 // now our Tasklist component has our tasklist that we're passing in
 // to update the array in our entire app, our createTask method will be here
 // instead of this.state.tasks({task, isCompleted: false}) should be this.state.tasks.push({task, isCompleted: false}), because in the first example, it is calling it as a function, but in the second example, it is pushing to the array, which is how it should be
+// here, toggleTask() is created and is passed into our Tasklist component
+// so the toggleTask() will find the matching item in the array and set its state to opposite of what it currently is; the way we achieve this is to make a const foundTask and use a lodash method 
+// so the const foundTask is actually going to find the tasks task that matches the task that we are passing in, which will be the one that we click on, then we'll just swap the foundTask to the opposite state of what it was
+// then we refresh the app by doing setState, this.setState({tasks: this.state.tasks});
+// now, we are passing toggleTask into our Tasklist, however, not into our tasklistitem.js file yet, so we go into our tasklist.js file
+// *the only difference between this taskcentric app and taskmaven4 is that tasks is used in const foundTask= _.find(this.state.tasks, tasks => tasks.task === task); while in taskmaven4, todo is used in const foundTodo = _.find(this.state.todos, todo => todo.task === task);
  export default class App extends React.Component {
 
   constructor(props){
@@ -39,15 +45,22 @@ const tasks = [    // todos will be changed to tasks
       <div>
         <h1>taskcentric</h1>
         <CreateTask createTask={this.createTask.bind(this)} />
-        <Tasklist tasks={this.state.tasks}/> 
+        <Tasklist tasks={this.state.tasks} toggleTask={this.toggleTask.bind(this)}/> 
       </div>
       );
   }
-    createTask(task){
-      this.state.tasks.push({
-        task,
-        isCompleted: false
-      });
-      this.setState({tasks: this.state.tasks});
-    }
+
+  toggleTask(task){
+    const foundTask= _.find(this.state.tasks, tasks => tasks.task === task);
+    foundTask.isCompleted = ! foundTask.isCompleted;
+    this.setState({tasks: this.state.tasks});
+  }
+
+  createTask(task){
+    this.state.tasks.push({
+      task,
+      isCompleted: false
+    });
+    this.setState({tasks: this.state.tasks});
+  }
 }
