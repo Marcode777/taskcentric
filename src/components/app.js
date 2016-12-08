@@ -32,6 +32,7 @@ const tasks = [    // todos will be changed to tasks
 // in creating our saveTask() method, we'll have an oldTask and newTask, we'll use the oldTask to match to our array, and then we'll replace the oldTask with the newTask, so what we'll do is similar to what we did in the toggleTask(), but among other slight modifications, this time we'll match it to oldTask as in ===oldTask
 // then we pass our saveTask() into our Tasklist component, and we are also already passing it into the tasklist.js file because of the "tasks" code in const props = _.omit(this.props, 'tasks'), and now in our tasklistitem.js file, we just need to connect it with the save function
 // for our delete feature, we make a deleteTask() method, and use another lodash method and then pass it into our Tasklist component again, which is a very familiar procedure by now, and it's also automatically passed into our tasklist.js file because of the "tasks" code in const props = _.omit(this.props, 'tasks'); now we also just connect the delete button in tasklistitem.js
+// we also pass in the tasks array into the CreateTask component so we can search through it, by passing in, tasks={this.state.tasks}
  export default class App extends React.Component {
 
   constructor(props){
@@ -47,7 +48,7 @@ const tasks = [    // todos will be changed to tasks
     return(
       <div>
         <h1>taskcentric</h1>
-        <CreateTask createTask={this.createTask.bind(this)} />
+        <CreateTask tasks={this.state.tasks} createTask={this.createTask.bind(this)} />
         <Tasklist tasks={this.state.tasks} toggleTask={this.toggleTask.bind(this)} saveTask={this.saveTask.bind(this)} deleteTask={this.deleteTask.bind(this)} /> 
       </div>
       );
