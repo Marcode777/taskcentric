@@ -29,6 +29,9 @@ const tasks = [    // todos will be changed to tasks
 // then we refresh the app by doing setState, this.setState({tasks: this.state.tasks});
 // now, we are passing toggleTask into our Tasklist, however, not into our tasklistitem.js file yet, so we go into our tasklist.js file
 // *the only difference between this taskcentric app and taskmaven4 is that tasks is used in const foundTask= _.find(this.state.tasks, tasks => tasks.task === task); while in taskmaven4, todo is used in const foundTodo = _.find(this.state.todos, todo => todo.task === task);
+// in creating our saveTask() method, we'll have an oldTask and newTask, we'll use the oldTask to match to our array, and then we'll replace the oldTask with the newTask, so what we'll do is similar to what we did in the toggleTask(), but among other slight modifications, this time we'll match it to oldTask as in ===oldTask
+// then we pass our saveTask() into our Tasklist component, and we are also already passing it into the tasklist.js file because of the "tasks" code in const props = _.omit(this.props, 'tasks'), and now in our tasklistitem.js file, we just need to connect it with the save function
+// for our delete feature, we make a deleteTask() method, and use another lodash method and then pass it into our Tasklist component again, which is a very familiar procedure by now, and it's also automatically passed into our tasklist.js file because of the "tasks" code in const props = _.omit(this.props, 'tasks'); now we also just connect the delete button in tasklistitem.js
  export default class App extends React.Component {
 
   constructor(props){
@@ -45,7 +48,7 @@ const tasks = [    // todos will be changed to tasks
       <div>
         <h1>taskcentric</h1>
         <CreateTask createTask={this.createTask.bind(this)} />
-        <Tasklist tasks={this.state.tasks} toggleTask={this.toggleTask.bind(this)}/> 
+        <Tasklist tasks={this.state.tasks} toggleTask={this.toggleTask.bind(this)} saveTask={this.saveTask.bind(this)} deleteTask={this.deleteTask.bind(this)} /> 
       </div>
       );
   }
@@ -61,6 +64,17 @@ const tasks = [    // todos will be changed to tasks
       task,
       isCompleted: false
     });
+    this.setState({tasks: this.state.tasks});
+  }
+
+  saveTask(oldTask, newTask){
+    const foundTask = _.find(this.state.tasks, tasks => tasks.task === oldTask);
+    foundTask.task = newTask;
+    this.setState({tasks: this.state.tasks});
+  }
+
+  deleteTask(taskToDelete){
+    _.remove(this.state.tasks, tasks => tasks.task === taskToDelete);
     this.setState({tasks: this.state.tasks});
   }
 }
