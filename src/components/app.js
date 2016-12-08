@@ -22,6 +22,7 @@ const tasks = [    // todos will be changed to tasks
 // now to pass our state of tasks into tasklist, we'll pass the constant tasks into it, we do this by doing this.state={tasks]; and then tasks={this.state.tasks}
 // now our Tasklist component has our tasklist that we're passing in
 // to update the array in our entire app, our createTask method will be here
+// instead of this.state.tasks({task, isCompleted: false}) should be this.state.tasks.push({task, isCompleted: false}), because in the first example, it is calling it as a function, but in the second example, it is pushing to the array, which is how it should be
  export default class App extends React.Component {
 
   constructor(props){
@@ -37,13 +38,13 @@ const tasks = [    // todos will be changed to tasks
     return(
       <div>
         <h1>taskcentric</h1>
-        <CreateTask/>
-        <Tasklist tasks={this.state.tasks} createTask={this.createTask.bind(this)}/> 
+        <CreateTask createTask={this.createTask.bind(this)} />
+        <Tasklist tasks={this.state.tasks}/> 
       </div>
       );
   }
     createTask(task){
-      this.state.tasks({
+      this.state.tasks.push({
         task,
         isCompleted: false
       });
