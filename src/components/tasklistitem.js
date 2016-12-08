@@ -4,7 +4,7 @@ import React from 'react';
 // onCLick, and the like, are how we do event handlers in React
 // with the renderActionsSection, if the state is editing, we return the Save button and also the Cancel button
 // with the renderActionsSection, if the state is not editing, and here, we actually don't need an else statement, because it just returns , we return the Edit button and also the Delete Button
-// 
+// for dynamic styling, we create a const component called taskStyle, which will be a conditional, so if, it isCompleted, it will be one color, otherwise it will be the other  
 export default class TaskListItem extends React.Component {
 
   constructor(props){
@@ -13,6 +13,19 @@ export default class TaskListItem extends React.Component {
     this.state={
       isEditing: false
     };
+  }
+
+  renderTasksSection(){
+    const {task, isCompleted} = this.props;
+
+    const taskStyle = {
+      color: isCompleted ? '#809fff' : '#ff9999',
+      cursor: 'pointer'
+    }
+
+    return(
+      <td style={taskStyle} >{task}</td>
+      )
   }
 
   renderActionsSection(){
@@ -35,7 +48,7 @@ export default class TaskListItem extends React.Component {
   render(){
     return(
       <tr>
-        <td>{this.props.task}</td>
+        {this.renderTasksSection()}
         {this.renderActionsSection()}
       </tr>
         );

@@ -6,7 +6,7 @@ import Tasklist from './tasklist';
 const tasks = [    // todos will be changed to tasks
   {
     task:" do taskcentric",
-    isCompleted: false
+    isCompleted: true
   },
   {
     task:"get skills sharper",
