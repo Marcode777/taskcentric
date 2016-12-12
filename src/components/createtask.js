@@ -58,7 +58,7 @@ import React from 'react';
     validateInput(task){
       if (! task){
         return "Enter a task to be done here";
-      } else if(_.find(this.props.tasks, tasks=> tasks.task ===task)){
+      } else if(_.find(this.props.tasks, task=> tasks.task ===task)){
         return "this task is already on the list";
       } else {
         return null;
