@@ -13,6 +13,7 @@ import React from 'react';
 // so basically state will start off as null, if there is a validateInput, basically if this method returned a message, then this would be true, then we're going to setState and set our error to be validateInput, if that's not true, then we'll just continue along the code, and if there's no error, then we'll just reset the state to be null
 // now in our renderError() method, basically if there are no errors, we'll do an early return so that nothing happens, but if there is an error, then we'll return a styled this.state.error, which is set to be the message from the validateInput() method
 // also we need to place a return at validateInput in the handleCreate section because if there's an error, we don't want it to even reach the save point
+
  export default class CreateTask extends React.Component {
   constructor(props){
     super(props);
@@ -31,7 +32,7 @@ import React from 'react';
     return(
       <form onSubmit={this.handleCreate.bind(this)}>
         <input type="text" placeholder=" create task to be done" ref="createInput" />
-        <button>Create</button>
+        <button style={{color:'red'}}>Create</button>
         {this.renderError()}
       </form>
     );
