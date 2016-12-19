@@ -1,0 +1,21 @@
+<!-- *******IT'S ALL ABOUT COMPONENTS, STATES AND PROPS, and remember that a render can only essentially display 1 parent element, if we want to render multiple parent elements, they have to be wrapped in a div. Remember to use ".bind(this)" when passing functions or methods around. Whenever we're binding a value, we'll also set up a change listener for that, so that it actually changes when the value changes. Also, css-like design elements with hyphens are camelCase in React JSX and should be made into a component, and then implemented, in order for them to function.*******
+******FLUX is a pattern. CADS, Components, Actions, Dispatcher, Stores and it cycles again.******
+******Remember, when listening to events on mount, to also unmount them to prevent memory leaks.******
+
+to use this app, run the command webpack-dev-server, and it should display on localhost 8080;
+
+left off at 51:25
+
+to use this app, on terminal, run webpack-dev-server and app should appear on localhost:8080
+
+npm init -y to create package.json
+
+npm i -S react, react-dom    (npm i -S, is a quick way of npm install --save)
+
+npm i -D babel-core babel-loader babel-preset-es2015 babel-preset-react react-hot-loader webpack webpack-dev-server                    (npm i -D, is a quick way of npm install --save-dev)
+
+then npm i -g webpack webpack-dev-server (npm i -g, is a quick way of npm installing globally)
+
+sidenote: for the webpack.config.js file, differences are in loaders, instead of react-hot it is react-hot-loader/webpack, but here I revised it yet again from react-hot-loader/webpack to react-hot-loader
+
+To create a production bundle, use `npm run build`.
