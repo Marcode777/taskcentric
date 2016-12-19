@@ -3,6 +3,8 @@ import CreateTask from './createtask';
 import Tasklist from './tasklist';
 
 
+
+
 const tasks = [    // todos will be changed to tasks
   {
     task:" do taskcentric",
@@ -13,6 +15,17 @@ const tasks = [    // todos will be changed to tasks
     isCompleted: false
   }
 ]; 
+var containerStyle = {
+      marginTop: "10px",
+      backgroundImage: 'url("https://static.pexels.com/photos/2324/skyline-buildings-new-york-skyscrapers.jpg")',
+      position:"absolute",
+      WebkitBackgroundSize: 'cover', // note the capital 'W' here
+      height:"100%",
+      width:"100%"
+    };
+
+
+
 // remember that within the export default class App extends React.Component... is JSX, so comments will not work and they will show up on the view if written there
 // within the divs are where the tasklist.js, tasklistheader.js files will show up, after being imported as Tasklist from "./tasklist" and Tasklistheader from "./tasklistheader" as well, etc...
 // within the divs are where tasklist.js (and all other components associated with it, such as tasklistheader) will show up after being imported as Tasklist from "./tasklist" up top
@@ -46,10 +59,12 @@ const tasks = [    // todos will be changed to tasks
 
   render(){
     return(
-      <div>
-        <h1>taskcentric</h1>
-        <CreateTask tasks={this.state.tasks} createTask={this.createTask.bind(this)} />
-        <Tasklist tasks={this.state.tasks} toggleTask={this.toggleTask.bind(this)} saveTask={this.saveTask.bind(this)} deleteTask={this.deleteTask.bind(this)} /> 
+      <div style={containerStyle}>
+        <div>
+          <h1 className="first">taskcentric</h1>
+          <CreateTask tasks={this.state.tasks} createTask={this.createTask.bind(this)}/>
+          <Tasklist tasks={this.state.tasks} toggleTask={this.toggleTask.bind(this)} saveTask={this.saveTask.bind(this)} deleteTask={this.deleteTask.bind(this)} />
+        </div> 
       </div>
       );
   }
