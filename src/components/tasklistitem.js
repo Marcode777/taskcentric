@@ -32,7 +32,7 @@ export default class TaskListItem extends React.Component {
 
     if(this.state.isEditing){
       return(
-          <td>
+          <td className="tasklistitem">
             <form onSubmit={this.onSaveClick.bind(this)}>
               <input type="text" defaultValue={task} ref="editInput"/>
             </form>

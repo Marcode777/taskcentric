@@ -30,7 +30,7 @@ import React from 'react';
 
   render(){
     return(
-      <form onSubmit={this.handleCreate.bind(this)}>
+      <form className="create" onSubmit={this.handleCreate.bind(this)}>
         <input type="text" placeholder=" create task to be done" ref="createInput" />
         <button style={{color:'red'}}>Create</button>
         {this.renderError()}

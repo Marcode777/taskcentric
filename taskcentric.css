@@ -1,8 +1,21 @@
-.jumbotron{
-  background-color:#8080ff;
-}
+
 
 h1{
   text-align:center;
 }
 
+.create{
+  text-align:center;
+} /* this is in the createtask.js file*/
+
+.table{
+  text-align: center;
+}/* this is the tasklist.js file*/
+
+.tasklistheader{
+  text-align: center;
+}/* this is the tasklistheader.js file*/
+
+.tasklistitem{
+  text-align: center;
+}/* this is the tasklistitem.js file*/

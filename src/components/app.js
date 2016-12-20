@@ -24,6 +24,10 @@ var containerStyle = {
       width:"100%"
     };
 
+var position = {
+  align: "center"
+}
+
 
 
 // remember that within the export default class App extends React.Component... is JSX, so comments will not work and they will show up on the view if written there
@@ -62,8 +66,8 @@ var containerStyle = {
       <div style={containerStyle}>
         <div>
           <h1 className="first">taskcentric</h1>
-          <CreateTask tasks={this.state.tasks} createTask={this.createTask.bind(this)}/>
-          <Tasklist tasks={this.state.tasks} toggleTask={this.toggleTask.bind(this)} saveTask={this.saveTask.bind(this)} deleteTask={this.deleteTask.bind(this)} />
+          <CreateTask className="second" tasks={this.state.tasks} createTask={this.createTask.bind(this)}/>
+          <Tasklist className="third" tasks={this.state.tasks} toggleTask={this.toggleTask.bind(this)} saveTask={this.saveTask.bind(this)} deleteTask={this.deleteTask.bind(this)} />
         </div> 
       </div>
       );

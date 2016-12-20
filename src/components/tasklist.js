@@ -28,7 +28,7 @@ export default class Tasklist extends React.Component {
   render(){
     console.log(this.props.tasks); 
     return(
-      <table>
+      <table className="table">
         <Tasklistheader/>
           <tbody>
             {this.renderItems()}
