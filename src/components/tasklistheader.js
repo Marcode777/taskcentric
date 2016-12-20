@@ -6,8 +6,8 @@ export default class Tasklistheader extends React.Component {
     return(
         <thead>
           <tr>
-            <th>Task</th>
-            <th>Action</th>
+            <th className="tasklistheader">Task</th>
+            <th className="tasklistheader">Action</th>
           </tr>
         </thead>
       );
