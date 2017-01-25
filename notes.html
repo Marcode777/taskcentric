@@ -22,6 +22,9 @@ To create a production bundle, use `npm run build`.
 
 
 
+*the difference between just exporting class and using ,export default class, is that if you just export class, then you have to import them using their exact names in between curly braces as in, export class Display will have to be imported as import {Display} from './whateverfile', while using export default class Display can be imported as, import Display from './whateverfile' and also you can import default and named exports at the same time,
+import Template,{AnotherTemplate} from './components/templates'* 
+*also as a note, the default export class name has to be the same as the actual file name it's coming from, except the first letter is capitalized, and then this is also the same name, except capilaized, that must be imported as well*
 
 
 CSS Pre-processors such as LESS or SASS help the app load faster via imports, giving the ability to collect multiple documents and collect them together and output them as one file, because each document you link to in the head of the HTML is an HTTP request, this lessens the amount of HTTP requests into one, thereby giving the app more speed. They also help lessen total code.
