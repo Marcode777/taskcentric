@@ -6,6 +6,8 @@ but the reason you'd want to use class is that it has access to component life c
 *****props are actually just JavaScript objects that are converted by Babel and written in JSX, and are given as arguments, e.g. function MonsterList(props), so that way we have, available, props.monsters*****
 ***** also, the curly braces { }, in JSX means, between these curly braces, perform JavaScript. If you remove the curly braces, they would just get rendered straight as text.*****
 ***** componentWillMount() life cycle hook initializes the state of our app at the beginning*****
+*****make sure you know what you are exporting, e.g., you have multiple components, but there is a main component that it should be contained in, so export that. For example, if your main component is class App, export default App, or if it is class Monster, then export default class Monster*****
+
 
 to use this app, run the command webpack-dev-server, and it should display on localhost 8080;
 
