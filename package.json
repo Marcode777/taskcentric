@@ -19,8 +19,11 @@
   "homepage": "https://github.com/Marcode777/taskcentric#readme",
   "dependencies": {
     "lodash": "^4.17.2",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.4.2",
+    "react-addons-transition-group": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "reactstrap": "^4.1.1"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",

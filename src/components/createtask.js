@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from 'reactstrap';
 // when the Create button is clicked (or the form is submitted), we want to grab whatever text is inside the input box and add it to our tasks arrays, located in our app.js file, we do this by using refs, which are basically identifiers for the DOM element, to actually grab what is exactly typed into the input box, we use .value
 // when onSubmit is triggered or pressed, it automatically refreshes the page, to prevent that, we have an event prevent default
 // now to update the array in our entire app, we can't just do something in this file, we have to do it in the app.js file
@@ -32,7 +33,7 @@ import React from 'react';
     return(
       <form className="create" onSubmit={this.handleCreate.bind(this)}>
         <input type="text" placeholder=" create task" ref="createInput" />
-        <button style={{fontWeight:'bold', color:'red'}}>Create</button>
+        <Button color="primary">Create</Button>
         {this.renderError()}
       </form>
     );
